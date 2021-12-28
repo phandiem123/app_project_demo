@@ -1,6 +1,8 @@
+/* eslint-disable quotes */
+/* eslint-disable import/extensions */
 /* eslint-disable import/newline-after-import */
-import { Sequelize, DataTypes, Model } from 'sequelize';
-const sequelize = new Sequelize('sqlite::memory:');
+import { DataTypes, Model } from 'sequelize';
+import sequelize from "../config/Sequelize.js";
 
 class Class extends Model {}
 
@@ -10,11 +12,15 @@ Class.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  total_students: {
+  total_student: {
     type: DataTypes.INTEGER,
     // allowNull defaults to true
   },
-  id_registration: {
+  cal_id: {
+    type: DataTypes.INTEGER,
+    // allowNull defaults to true
+  },
+  reg_id: {
     type: DataTypes.INTEGER,
     // allowNull defaults to true
   },
@@ -22,7 +28,6 @@ Class.init({
   // Other model options go here
   sequelize, // We need to pass the connection instance
   modelName: 'Class', // We need to choose the model name
-  tableName: 'classes',
 });
 
 // the defined model is the class itself
